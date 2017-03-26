@@ -1,5 +1,6 @@
 # Solution is available in the other "sandbox_solution.py" tab
 import tensorflow as tf
+import numpy as np
 from tensorflow.examples.tutorials.mnist import input_data
 
 # Solution is available in the other "quiz_solution.py" tab
@@ -34,6 +35,7 @@ def linear(input, w, b):
     """
     return tf.add(tf.matmul(input, w), b)
 
+
 def mnist_features_labels(n_labels):
     """
     Gets the first <n> labels from the MNIST dataset
@@ -55,6 +57,9 @@ def mnist_features_labels(n_labels):
 
     return mnist_features, mnist_labels
 
+
+def softmax(x):
+    return np.exp(x) / np.sum(np.exp(x), axis=0);    
 
 # Number of features (28*28 image is 784 features)
 n_features = 784
